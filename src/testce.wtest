@@ -1,0 +1,18 @@
+import example.*
+test "Pedido de Moe, 8 lotes, 3 ingredientes" {
+	var lager = new Cerveza()
+	lager.nombre("Lager")
+	lager.lupuloEs("Importado")
+	lager.fermentacionEs("Alta")
+	lager.ingredientesCantidad(3)
+	var moe = new Moe()
+	moe.cerveza(lager)
+	moe.cantidadporlote(6)
+	moe.lote(8)
+	moe.costoPorLote()
+	moe.costoTotal()
+	moe.calcularDescuento()
+	moe.descuentoDistribuidora()
+	assert.equals(51324, moe.costototal())
+}
+
