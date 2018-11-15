@@ -1,10 +1,3 @@
-		/** First Wollok example */
-object wollok {
-	method howAreYou() {
-		return 'I am Wolloktastic!'
-	}
-}
-
 class Cerveza{
 	var property nombre
 	var property lupulo
@@ -58,20 +51,43 @@ class Cerveza{
 		var property cerveza
 		var property costolote
 		var property lote
+		var property descuento
+		var property costototal
 		
 		method costoPorLote(){
 			costolote = cantidadporlote * cerveza.valor()
 		}
 		
-		method costoTotal(pinta){
-			if(pinta == "Clasica"){
-			return costolote * lote
+		method costoTotal(){
+			if(cerveza.nombre() == "Clasica"){
+			costototal =  costolote * lote
 			}
-			else if(pinta == "Lager"){
-			var costo = costolote * lote
-			costo	
+			else if(cerveza.nombre() == "Lager"){
+				if(cerveza.ingredientes() > 5){
+				costototal = (costolote * lote)	
+				descuento = costototal*0.2
+				costototal = costototal - descuento
+				}
+				else{
+				costototal = (costolote * lote)
+				descuento = costototal*(0.02 * cerveza.ingredientes())		
+				costototal = costototal - descuento
+				}
+				 	
 			}
+			else if(cerveza.nombre() == "Porter"){
+				if(cerveza.logistica() > 10){
+				costototal = costolote * lote
+				descuento = costototal*0.1
+				costototal = costototal - descuento
+				}
+				else{
+				costototal =  costolote * lote	
+				}
+			}	
 		}	
 	}
+	
+	
 	
 	
